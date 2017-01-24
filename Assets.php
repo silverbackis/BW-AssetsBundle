@@ -139,7 +139,12 @@ class Assets implements EventSubscriberInterface{
      */
     public function createManifests(){
         //only update manifests when in dev
-        if(!$this->kernel->isDebug()) return;
+        if(!$this->kernel->isDebug()){
+            foreach($this->config['local']['assets'] as $extension=>$assetsArray){
+                $this->generateFileHash($extension,$remake=true);
+            }
+            return;
+        }
 
         $currentRequest = $this->requestStack->getCurrentRequest();
 

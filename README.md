@@ -39,7 +39,7 @@ class AppKernel extends Kernel
 
 You can also run the following command to automatically add this to your AppKernel.php file
 ```bash
-php vendor/silverbackis/bwcore-assetsbundle/Install.php
+php vendor/silverbackis/bw-assets-bundle/Install.php
 ```
 
 Once the bundle is enabled you can run the following command to copy the bower.json, gulpfile.js and optionally a package.json file
