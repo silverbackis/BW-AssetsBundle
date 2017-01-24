@@ -217,8 +217,8 @@ bwc_assets:
 The parameters and configuration will be referenced in the documentation for remote and local assets:
 
 ***
-> * [Working with remote assets](https://github.com/silverbackis/BWCore-AssetsBundle/blob/master/Docs/Remote%20Assets.md)
-> * [Working with local assets](https://github.com/silverbackis/BWCore-AssetsBundle/blob/master/Docs/Local%20Assets.md)
+> * [Working with remote assets](https://github.com/silverbackis/BW-AssetsBundle/blob/master/Docs/Remote%20Assets.md)
+> * [Working with local assets](https://github.com/silverbackis/BW-AssetsBundle/blob/master/Docs/Local%20Assets.md)
 
 ***
 

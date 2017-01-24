@@ -105,7 +105,7 @@ gulp default
 ```
 
 ***
-> * [Getting Started Readme](https://github.com/silverbackis/BWCore-AssetsBundle)
-> * [Working with remote assets](https://github.com/silverbackis/BWCore-AssetsBundle/blob/master/Docs/Remote%20Assets.md)
+> * [Getting Started Readme](https://github.com/silverbackis/BW-AssetsBundle)
+> * [Working with remote assets](https://github.com/silverbackis/BW-AssetsBundle/blob/master/Docs/Remote%20Assets.md)
 
 ***

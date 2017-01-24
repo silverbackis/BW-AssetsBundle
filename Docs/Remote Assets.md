@@ -161,8 +161,8 @@ $bw_assets = $this->get('bw.assets');
 This feature has not been developed yet. If you feel it would be useful please feel free to submit a pull request and expose methods in the current twig extension to these methods.
 
 ***
-> * [Getting Started Readme](https://github.com/silverbackis/BWCore-AssetsBundle)
-> * [Working with local assets](https://github.com/silverbackis/BWCore-AssetsBundle/blob/master/Docs/Local%20Assets.md)
+> * [Getting Started Readme](https://github.com/silverbackis/BW-AssetsBundle)
+> * [Working with local assets](https://github.com/silverbackis/BW-AssetsBundle/blob/master/Docs/Local%20Assets.md)
 
 ***
 
