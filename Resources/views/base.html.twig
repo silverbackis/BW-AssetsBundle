@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Hello!{% endblock %}</title>
+        {% block stylesheets %}
+            {% for externalPath in getAssetsArray('css',true) %}
+                <link rel="stylesheet" href="{{ externalPath.path }}" crossorigin="anonymous" {% if externalPath.integrity != false %} integrity="{{ externalPath.integrity }}" {% endif %} />
+            {% endfor %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        
+        {% block javascripts %}
+            {% for externalPath in getAssetsArray('js',true) %}
+                <script src="{{ externalPath.path }}" crossorigin="anonymous" {% if externalPath.integrity != false %} integrity="{{ externalPath.integrity }}" {% endif %}></script>
+            {% endfor %}
+        {% endblock %}
+    </body>
+</html>

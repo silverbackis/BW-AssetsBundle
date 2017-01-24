@@ -1,0 +1,22 @@
+{
+  "name": "bwcore-assetsbundle",
+  "homepage": "https://github.com/silverbackis/BWCore-AssetsBundle",
+  "authors": [
+    "Daniel West <daniel@silverback.is>"
+  ],
+  "description": "Bower package to manage dependencies for your Symfony application. Included by BWCore-AssetsBundle.",
+  "main": "",
+  "license": "Apache-2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/bower",
+    "test",
+    "tests",
+    "<%BUNDLE_ROOT%>/Resources/public/bower/source"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}

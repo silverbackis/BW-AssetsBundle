@@ -1,0 +1,116 @@
+local:
+  gulpOnLoad: false
+  includeBower: true
+  read_from: '%kernel.root_dir%/../web/'
+  assets: '%local_assets%'
+dependancies:
+  bootstrap:
+    tether: true
+    jquery: 
+      slim: true
+remote:
+    googleFonts:
+      enabled: true
+      version: null
+      base: //fonts.googleapis.com/css?family=
+      files:
+        css:
+          enabled: true
+          extension: css
+          file: '%google_fonts%'
+    jquery: 
+      version: 3.1.1
+      base: //code.jquery.com/
+      files:
+        slim: 
+          file: jquery-{version}.slim.min.js
+          integrity: sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=
+        js: 
+          file: jquery-{version}.min.js
+          integrity: sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=
+          includes:
+            jquery: ['slim']
+    tether: 
+      version: 1.4.0
+      base: //cdnjs.cloudflare.com/ajax/libs/tether/{version}/
+      files:
+        js: 
+          file: js/tether.min.js
+          integrity: sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb
+    bootstrap: 
+      version: 4.0.0-alpha.6
+      base: //maxcdn.bootstrapcdn.com/bootstrap/{version}/
+      #this also needs jquery OR jquey_slim and tether
+      files:
+        css:
+          file: css/bootstrap.min.css
+          integrity: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
+        js: 
+          file: js/bootstrap.min.js
+          integrity: sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn
+    gsap: 
+      enabled: true
+      version: 1.19.0
+      base: //cdnjs.cloudflare.com/ajax/libs/gsap/{version}/
+      files:
+        TweenLite:
+          enabled: true
+          file: TweenLite.min.js
+        EasePack:
+          enabled: true
+          file: easing/EasePack.min.js
+        CSSPlugin:
+          enabled: true
+          file: plugins/CSSPlugin.min.js
+        TweenMax:
+          enabled: false
+          file: TweenMax.min.js
+          includes: 
+            gsap: ['TweenLite','EasePack','CSSPlugin','TimelineLite','TimelineMax','AttrPlugin','RoundPropsPlugin','DirectionalRotationPlugin','BezierPlugin']
+        TimelineLite:
+          enabled: false
+          file: TimelineLite.min.js
+        TimelineMax:
+          enabled: false
+          file: TimelineMax.min.js
+          includes: 
+            gsap: ['TimelineLite']
+        Draggable:
+          enabled: false
+          file: utils/Draggable.min.js
+        AttrPlugin:
+          enabled: false
+          file: plugins/AttrPlugin.min.js
+        BezierPlugin:
+          enabled: false
+          file: plugins/BezierPlugin.min.js
+        ColorPropsPlugin:
+          enabled: false
+          file: plugins/ColorPropsPlugin.min.js
+        CSSRulePlugin:
+          enabled: false
+          file: plugins/CSSRulePlugin.min.js
+        DirectionalRotationPlugin:
+          enabled: false
+          file: plugins/DirectionalRotationPlugin.min.js
+        EaselPlugin:
+          enabled: false
+          file: plugins/EaselPlugin.min.js
+        EndArrayPlugin:
+          enabled: false
+          file: plugins/EndArrayPlugin.min.js
+        ModifiersPlugin:
+          enabled: false
+          file: plugins/ModifiersPlugin.min.js
+        RaphaelPlugin:
+          enabled: false
+          file: plugins/RaphaelPlugin.min.js
+        RoundPropsPlugin:
+          enabled: false
+          file: plugins/RoundPropsPlugin.min.js
+        ScrollToPlugin:
+          enabled: false
+          file: plugins/ScrollToPlugin.min.js
+        TextPlugin:
+          enabled: false
+          file: plugins/TextPlugin.min.js

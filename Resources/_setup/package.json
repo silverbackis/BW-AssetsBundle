@@ -1,0 +1,51 @@
+{
+  "name": "bwcore-assetsbundle",
+  "version": "1.0.0",
+  "description": "This Symfony 3 bundle provides tools so you can manage resources, either loaded directly from external URLs/CDNs, or locally using Bower and/or Gulp.",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^3.0.0",
+    "gulp-filter": "^5.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "main-bower-files": "^2.13.1",
+    "del": "^2.2.2",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "fs": "0.0.1-security",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-if": "^2.0.2",
+    "gulp-include": "^2.3.1",
+    "gulp-rev-delete-original": "^0.2.2",
+    "main-bower-files": "^2.13.1",
+    "path": "^0.12.7",
+    "rev-del": "git+https://github.com/silverbackis/rev-del.git",
+    "stream-combiner2": "^1.1.1",
+    "through2": "^2.0.3",
+    "yargs": "^6.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silverbackis/BWCore-AssetsBundle.git"
+  },
+  "author": "Daniel West <daniel@silverback.is>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/silverbackis/BWCore-AssetsBundle/issues"
+  },
+  "homepage": "https://github.com/silverbackis/BWCore-AssetsBundle#readme"
+}
