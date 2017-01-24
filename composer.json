@@ -1,5 +1,5 @@
 {
-    "name": "silverbackis/BW-AssetsBundle",
+    "name": "silverbackis/bw-assets-bundle",
     "license": "Apache-2.0",
     "type": "symfony-bundle",
     "description": "A Symfony 3 bundle allowing easy configuration of JS and CSS assets using Bower, Gulp and/or external CDNs",
