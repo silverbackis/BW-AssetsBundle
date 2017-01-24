@@ -8,7 +8,7 @@ class Install{
 		require_once __DIR__.'/../../../var/bootstrap.php.cache';
 		$kernel = new \AppKernel('prod', false);
 		$kernelManipulator = new KernelManipulator($kernel);
-		$bundleClassName = 'BW\AssetsBundle\AssetsBundle';
+		$bundleClassName = 'BW\AssetsBundle\BWAssetsBundle';
 		try {
 			$ret = $kernelManipulator->addBundle($bundleClassName);
 			if(!$ret){
