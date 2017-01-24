@@ -129,6 +129,7 @@ class SetupCommand extends ContainerAwareCommand
 		$output->writeln([
     		'<info>BWCore Assets Bundle Instructions',
 	        '============</info>',
+	        "Remember to install your assets with symlinks <comment>php app/console assets:install --symlink</comment>",
 			"Please familiarize yourself with the Readme files on the github repository to discover all your configuration options. Enjoy!",
 			"<fg=yellow;options=bold>https://github.com/silverbackis/BWCore-AssetsBundle</>",
 			""

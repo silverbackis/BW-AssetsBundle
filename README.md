@@ -49,6 +49,11 @@ php bin/console bwcassets:setup
 
 This will ask interactive questions to determine where you'd like to run your gulp and bower commands from - it will default to your Symfony project's root directory. Bower dependancies will be installed within this bundle. That is so the sourcemaps generated can refer back to them so you can find them when inspecting your assets in a browser. Additionally, all local assets you include in pages will also be copied into this bundle when they are processed.
 
+Finally, it will be important to install your assets, otherwise your files will not exist to load. Symlink support is a must for an easy workflow:
+```bash
+php bin/console assets:install --symlink
+```
+
 ## Getting Started
 To automatically insert tags in your templates you'll need to make a couple of small modifications to your controllers and templates.
 
