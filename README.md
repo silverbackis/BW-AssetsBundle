@@ -1,4 +1,5 @@
 # BW Core - Assets Bundle
+##This is a work in progress
 This Symfony 3 Bundle was created to make the deployment of front-end assets using Bower and Gulp easier. It also provides a simple confirguration for including scripts and styles from remote URLs if you'd prefer to utilise the CDNs available.
 
 ## Requirements
@@ -10,9 +11,9 @@ This Symfony 3 Bundle was created to make the deployment of front-end assets usi
 This bundle has a gulpfile.js using Gulp 4 - provided package.json will install this. The setup console command will guide you. If you choose to copy and modify the configuration files manually, you can copy them from the within this bundle: **Resources/\_setup/**
 
 ## Installation
-You can install this bundle using composer:
+You can install this bundle using composer (from the current unreleased master branch):
 ```bash
-composer require silverbackis/bwcore-assetsbundle
+composer require silverbackis/bw-assets-bundle:dev-master
 ```
 
 Then enable the bundle:
@@ -28,7 +29,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new BWCore\AssetsBundle\AssetsBundle(),
+            new BW\AssetsBundle\BWAssetsBundle(),
         );
 
         // ...
