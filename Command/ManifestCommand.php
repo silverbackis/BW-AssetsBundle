@@ -16,7 +16,7 @@ class ManifestCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-        	->setName('bwcassets:manifest')
+        	->setName('bwassets:manifest')
         	->addOption(
         		'gulp', 
         		'g', 

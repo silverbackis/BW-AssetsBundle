@@ -72,14 +72,14 @@ The filenames generated in the page assets manifest are a hash of the source fil
 
 In many cases, it probably will not be convenient having to load each page that includes assets to make sure the manifest is updated. You can run a console command which will loop through all available route keys and run the controller's method - thereby updating the manifest for each page:
 ```bash
-php bin/console bwcassets:manifest
+php bin/console bwassets:manifest
 ```
 
 **This function also truncates your current manifest, cleaning it of any routes that may no longer exist**
 
 If you are not running the **gulp watch** task then you can also use the `--gulp` or `-g` flag which will try and execute **gulp default** once all controller methods have been run.
 ```bash
-php bin/console bwcassets:manifest --gulp
+php bin/console bwassets:manifest --gulp
 ```
 
 **Remember, for PHP to execute gulp for you, gulp must be able to be launched by the same user as PHP is running as. Otherwise, just run the gulp command manually.**

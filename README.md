@@ -44,7 +44,7 @@ php vendor/silverbackis/bw-assets-bundle/Install.php
 
 Once the bundle is enabled you can run the following command to copy the bower.json, gulpfile.js and optionally a package.json file
 ```bash
-php bin/console bwcassets:setup
+php bin/console bwassets:setup
 ```
 
 This will ask interactive questions to determine where you'd like to run your gulp and bower commands from - it will default to your Symfony project's root directory. Bower dependancies will be installed within this bundle. That is so the sourcemaps generated can refer back to them so you can find them when inspecting your assets in a browser. Additionally, all local assets you include in pages will also be copied into this bundle when they are processed.
@@ -65,7 +65,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use BWCore\AssetsBundle\Controller\DefaultController as Controller;
+use BW\AssetsBundle\Controller\DefaultController as Controller;
 
 class DefaultController extends Controller
 {
@@ -84,7 +84,7 @@ class DefaultController extends Controller
 
 Also, you should extend a base twig template with certain blocks that are used by this bundle:
 ```twig
-{% extends '@Assets/base.html.twig' %}
+{% extends '@BWAssets/base.html.twig' %}
 ```
 
 Again, feel free to copy this base template and modify it for your own needs.
@@ -101,7 +101,7 @@ parameters:
 
 **config.yml:**
 ```yaml
-bwc_assets:
+bw_assets:
 	local:
 	  gulpOnLoad: false
 	  includeBower: true

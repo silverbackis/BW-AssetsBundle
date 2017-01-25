@@ -12,7 +12,7 @@ class SetupCommand extends ContainerAwareCommand
 	protected function configure()
     {
         $this
-        	->setName('bwcassets:setup')
+        	->setName('bwassets:setup')
         	
         	->setDescription('Copy configuration files for Gulp and Bower')
         	->setHelp('Finds all available routes and updates assetHashes.json file for Gulp.');
