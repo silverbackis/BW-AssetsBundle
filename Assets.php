@@ -62,14 +62,14 @@ class Assets implements EventSubscriberInterface{
         $manifestPath =  __DIR__.'/Resources/manifests/revisionManifest.json';
         
         if (!file_exists($manifestPath)) {
-            $this->assetLoadError = '**NO-REVISION-MANIFEST-FILE**';
+            $this->assetLoadError = '**NO REVISION MANIFEST FILE**';
             return false;
         }
 
         $paths = json_decode(file_get_contents($manifestPath), true);
 
         if (!isset($paths[$filename])) {
-            $this->assetLoadError = '**NO-REVISION-KEY-IN-MANIFEST**';
+            $this->assetLoadError = '**NO REVISION KEY IN MANIFEST ('.$filename.')**';
             return false;
         }
         return 'bundles/bwassets/'.$paths[$filename];
@@ -77,6 +77,7 @@ class Assets implements EventSubscriberInterface{
     
     protected function generateFileHash($extension,$remakeHash=false){
         if(!isset($this->fileHashes[$extension]) || $remakeHash){
+            sort($this->config['local']['assets'][$extension]);
             $this->fileHashes[$extension] = ($this->config['local']['includeBower'] ? "+" : "").hash("crc32b",serialize($this->config['local']['assets'][$extension])).".$extension";
         }
     }
@@ -106,7 +107,7 @@ class Assets implements EventSubscriberInterface{
     public function outputLocalAssets($extension){
         $path = $this->getLocalAssetPath($extension);
         if(!$path){
-            $tags = '';
+            $tags = '<!-- '.$this->assetLoadError.' -->';
             foreach($this->config['local']['assets'][$extension] as $sourceFile){
                 $tags .= $this->getTag($sourceFile,$extension);
             }
