@@ -39,6 +39,6 @@ class BWAssetsExtension extends Extension
         unset($config['local']['assets']);
 
         $layoutService->addMethodCall( 'setConfig', array($config) );
-        $layoutService->addMethodCall( 'addLocalAssets', $newLocalAssets );
+        $layoutService->addMethodCall( 'addLocalAssets', array($newLocalAssets) );
     }
 }

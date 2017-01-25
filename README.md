@@ -96,7 +96,6 @@ You'll probably want to familiarize yourself with the parameters and default con
 ```yaml
 parameters:
   google_fonts: null
-  local_assets: []
 ```
 
 **config.yml:**
@@ -106,7 +105,7 @@ bw_assets:
 	  gulpOnLoad: false
 	  includeBower: true
 	  read_from: '%kernel.root_dir%/../web/'
-	  assets: '%local_assets%'
+	  assets: []
 	dependancies:
 	  bootstrap:
 	  	tether: true
