@@ -3,7 +3,6 @@ namespace BW\AssetsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use BW\AssetsBundle\DependencyInjection\Compiler\TwigChainLoaderPass;
 
 class BWAssetsBundle extends Bundle
 {
@@ -12,6 +11,5 @@ class BWAssetsBundle extends Bundle
         parent::build($container);
         $container->setParameter('google_fonts', null);
         $container->setParameter('local_assets', array());
-        $container->addCompilerPass(new TwigChainLoaderPass());
     }
 }

@@ -408,9 +408,7 @@ gulp.task('revisions', function(){
     ];
   }else{
     revisionsSrc = [
-      bundleRoot+'/Resources/public/*/dist/**',
-      '!'+bundleRoot+'/Resources/public/*/dist/**/*-*.*',
-      '!'+bundleRoot+'/Resources/public/*/dist/**/*.map'
+      bundleRoot+'/Resources/public/*/dist/**/!(*-*).+(js|css)'
     ];
   }
 

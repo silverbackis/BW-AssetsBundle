@@ -5,16 +5,6 @@ services:
     tags:
       - { name: kernel.event_subscriber }
 
-  bw.assets.twig_gulp_loader:
-      class: BW\AssetsBundle\Twig\TwigGulpLoader
-      arguments: []
-
-  bw.assets.twig_chain_loader:
-    class: Twig_Loader_Chain
-    calls:
-      - [ addLoader, ["@twig.loader"] ]
-      - [ addLoader, ["@bw.assets.twig_gulp_loader"] ]
-
   twig_asset_version_extension:
     class: BW\AssetsBundle\Twig\AssetsExtension
     arguments: ["@bw.assets"]
