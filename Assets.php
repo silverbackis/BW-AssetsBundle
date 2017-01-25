@@ -107,14 +107,18 @@ class Assets implements EventSubscriberInterface{
     public function outputLocalAssets($extension){
         $path = $this->getLocalAssetPath($extension);
         if(!$path){
+            if(!isset($this->config['local']['assets'][$extension])){
+                return;
+            }
             $tags = '<!-- '.$this->assetLoadError.' -->';
             foreach($this->config['local']['assets'][$extension] as $sourceFile){
                 $tags .= $this->getTag($sourceFile,$extension);
             }
             return $tags;
-        };
-        //return the HTML tag
-        return $this->getTag($path,$extension);
+        }else{
+            //return the HTML tag
+            return $this->getTag($path,$extension);
+        }
     }
 
     private function getTag($path,$extension){
