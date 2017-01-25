@@ -12,7 +12,7 @@ class DefaultController extends Controller
         $parameters['gulp_extend_path'] = $view;
         
 		//render the latest twig template that extends whatever was submitted as the view
-    	$rendered = parent::render('gulpLoader', $parameters, $response);
+    	$rendered = parent::render('@BWAssets/gulp.html.twig', $parameters, $response);
 
     	return $rendered;
     }
