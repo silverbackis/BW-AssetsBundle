@@ -5,14 +5,6 @@ This is probably the most complex part of this bundle. It handles assets install
 
 Gulp will copy all your local assets into this bundle so they can be referenced and linked to with source maps.
 
-The first thing to note is an available parameter for local assets:
-```yaml
-parameters:
-  local_assets: []
-```
-
-Your **local_asset** parameter can be an array of local assets that should be included with every page.
-
 **config.yml (local resources)**
 ```yaml
 ...
@@ -20,9 +12,11 @@ Your **local_asset** parameter can be an array of local assets that should be in
       gulpOnLoad: false
       includeBower: true
       read_from: '%kernel.root_dir%/../web/'
-      assets: '%local_assets%'
+      assets: []
 ...
 ```
+
+You can define the assets array in the config.yml file to load in whatever common local files you'd like.
 
 ### Defining local assets paths
 Whenever you define local assets, you can use bundle namespaces, either with or without the 'Bundle' postfix. E.g. to reference this bundle you could write **@Asset** or **@AssetBundle** at the start of your string.
