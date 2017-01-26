@@ -2,7 +2,7 @@ local:
   gulpOnLoad: false
   includeBower: true
   read_from: '%kernel.root_dir%/../web/'
-  assets: '%local_assets%'
+  assets: []
 dependancies:
   bootstrap:
     tether: true
