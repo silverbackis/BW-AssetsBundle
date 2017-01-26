@@ -10,6 +10,5 @@ class BWAssetsBundle extends Bundle
     {
         parent::build($container);
         $container->setParameter('google_fonts', null);
-        $container->setParameter('local_assets', array());
     }
 }
