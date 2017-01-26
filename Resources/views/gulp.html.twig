@@ -1,10 +1,3 @@
 {% extends gulp_extend_path %}
-{% block stylesheets %}
-{{ parent() }}
-{{ createManifests() }}
-{{ outputLocalAssets('css') }} 
-{% endblock %}
-{% block javascripts %}
-{{ parent() }}
-{{ outputLocalAssets('js') }}
-{% endblock %}
+{% block stylesheets %} {{ parent() }} {{ createManifests() }} {{ outputLocalAssets('css') }}  {% endblock %}
+{% block javascripts %} {{ parent() }} {{ outputLocalAssets('js') }} {% endblock %}
