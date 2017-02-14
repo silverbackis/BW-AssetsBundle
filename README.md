@@ -1,5 +1,7 @@
 # BW Core - Assets Bundle
-##This is a work in progress
+##This project is currently unlikely to be continued or maintained.
+This is unlikely to be maintained or development continued and we are likely to use Assetic at British Websites. Generating manifests for routes has proven to be a sticking point. Also with proper cache use, having more than 1 resources file should end up being faster when browsing around a website than always insisting on just a single js and css file. Sourcemaps are not essential, especially as during development with Assetic, it is not necessary to uglify and combine all files. Sourcemaps are therefore unnecessary in a production environment. The extra steps in a workflow to use Gulp does not seem to be worth it. **We may modify this bundle for functionality to include external assets only.**
+
 This Symfony 3 Bundle was created to make the deployment of front-end assets using Bower and Gulp easier. It also provides a simple confirguration for including scripts and styles from remote URLs if you'd prefer to utilise the CDNs available.
 
 ## Requirements
