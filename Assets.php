@@ -295,11 +295,15 @@ class Assets implements EventSubscriberInterface{
             $this->config['local']['assets'][$extension] = array_unique(array_merge($this->config['local']['assets'][$extension],$paths));
         }
     }
+
     public function removeLocalAssets($assetsArray){
         $files = $this->getFilePaths($assetsArray);
         foreach($files as $foundFile){
-            if(($key = array_search($foundFile, $this->config['local']['assets'][$extension])) !== false) {
-                unset($this->config['local']['assets'][$extension][$key]);
+            $realFilePath = $this->normalizePath($foundFile->getRealPath());
+            $pathExtension = pathinfo($realFilePath,PATHINFO_EXTENSION);
+
+            if(($key = array_search($realFilePath, $this->config['local']['assets'][$pathExtension])) !== false) {
+                unset($this->config['local']['assets'][$pathExtension][$key]);
             }
         }
     }

@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Debug\Exception\UndefinedMethodException;
 
+use Symfony\Component\Process\Process;
+
+
 class ManifestCommand extends ContainerAwareCommand
 {
     protected function configure()
@@ -23,8 +26,14 @@ class ManifestCommand extends ContainerAwareCommand
         		InputOption::VALUE_NONE, 
         		'Whether you\'d also like to run `gulp default` once the assetHashes.json file is made'
         	)
-        	->setDescription('Updates assetHashes.json for Gulp')
-        	->setHelp('Finds all available routes and updates assetHashes.json file for Gulp.');
+        	->addOption(
+        		'truncate', 
+        		't', 
+        		InputOption::VALUE_NONE, 
+        		'Just truncate the manifest file'
+        	)
+        	->setDescription('Update assetHashes.json')
+        	->setHelp('Update assetHashes.json - the file that Gulp will use to generate public website assets');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -40,10 +49,16 @@ class ManifestCommand extends ContainerAwareCommand
 		}
 
 		$output->writeln([
-			"<info>DONE</info>",
-			"",
-			"<info>Generating manifest...</info>"]);
+			"<info>DONE</info>"]);
 
+		if($input->getOption('truncate')===true){
+			return;
+		}
+
+		$output->writeln([
+			"",
+			"<info>Generating manifest...</info>"
+		]);
 	    $CONTAINER = $this->getContainer();
 	    $routes = $CONTAINER->get('router')->getRouteCollection();
 		$requestStack = $CONTAINER->get('request_stack');
@@ -53,17 +68,17 @@ class ManifestCommand extends ContainerAwareCommand
 	    	$output->writeln([
 	    		"----"
 	    	]);
+
 	    	$request = Request::create(
 	    		$route->getPath(),
 	    		'GET',
 	    		array('_route'=>$routeKey)
 	    	);
 	    	$requestStack->push($request);
-	    	$request->request->set('route',$routeKey);
-	    	$requestStack->push($request);
-	    	$currentRequest = $requestStack->getCurrentRequest()->get("_route");
+	    	$request->request->set('route', $routeKey);
+
 	    	$output->writeln([
-	    		"Found route with name <comment>$currentRequest</comment>"
+	    		"Found route with name <comment>".$request->get("_route")."</comment>"
 	    	]);
 	    	
 	    	//get the default controller for the route that's been found
@@ -82,6 +97,7 @@ class ManifestCommand extends ContainerAwareCommand
 	    		]);
 		    	$controller = new $controllerClassStr();
 		    	$controller->setContainer($CONTAINER);
+
 		    	$methodStr = $namespaceMethodExplode[1];
 		    	if(!method_exists($controllerClassStr,$methodStr)){
 		    		$output->writeln([
@@ -93,23 +109,41 @@ class ManifestCommand extends ContainerAwareCommand
 			    	$output->writeln([
 			    		"Calling method: <comment>$methodStr()</comment>"
 			    	]);
-			    	$controller->$methodStr($request);
+			    	try{
+			    		$controller->$methodStr($request);
+			    	} catch (\Exception $e)
+			    	{
+			    		$output->writeln([
+			    			"<fg=red;options=bold,underscore>Exception when calling method `$methodStr` of class `$controllerClassStr`: ".$e->getMessage()."</>"
+			    		]);
+			    	}
 			    	$output->writeln([
 			    		"<comment>Done</comment>"
 			    	]);
 		    	}
 	    	}
-	    	$requestStack->pop($request);
+
 	    	$output->writeln([
 	    		"----"
 	    	]);
 	    }
 	    if($input->getOption('gulp')===true){
-	    	$exec = 'gulp default';
+	    	$exec = 'node /usr/local/bin/gulp default';
 	    	$output->writeln([
 	    		"<fg=cyan;options=bold,underscore>Attempting to execute `$exec`</>"
 	    	]);
-	    	exec($exec);
+
+	    	$process = new Process($exec);
+			$process->start();
+
+			foreach ($process as $type => $data) {
+			    if ($process::OUT === $type) {
+			        $output->writeln("Read from stdout: ".$data);
+			    } else { // $process::ERR === $type
+			        $output->writeln("Read from stderr: ".$data);
+			    }
+			}
+
 	    	$output->writeln([
 	    		""
 	    	]);

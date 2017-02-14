@@ -10,3 +10,9 @@ services:
     arguments: ["@bw.assets"]
     tags:
       - { name: twig.extension }
+
+  bw.assets.asset_warmer:
+    class: BW\AssetsBundle\CacheWarmer\AssetWarmer
+    arguments: ["@twig", "@templating.finder"]
+    tags:
+        - { name: kernel.cache_warmer, priority: 0 }
